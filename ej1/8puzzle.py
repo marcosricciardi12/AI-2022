@@ -118,6 +118,8 @@ def search_anchura(t_ini, arbol, raiz):
                     nodo_aux = copy.deepcopy(nodo)
                     nodo_aux.append(t_aux)
                     arbol.append(nodo_aux)
+                if not way:
+                    break
 
     for nodo in arbol:
         if t_ini in nodo:
@@ -162,9 +164,6 @@ def main():
         count = count + 1
     print("\nSolucion encontrada en " + str(count) + " movimientos!")
     search_anchura(t_vict, arbol, raiz)
-    for nodo in arbol:
-        print(nodo)
-
 
 
 

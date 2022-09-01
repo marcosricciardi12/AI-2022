@@ -1,7 +1,8 @@
 
 import random
 import sys
-import copy 
+import copy
+import time
 sys.setrecursionlimit(10**6)
 
 
@@ -79,10 +80,12 @@ def search_random(t_mezc, t_ini):
 
 def search_anchura(t_ini, arbol, raiz):
     way = True
+    print("Buscando caminos...")
     while way:
-        print("Buscando caminos")
         arbol_ant = copy.deepcopy(arbol)
         for nodo in arbol_ant:
+            # print(nodo)
+            arbol.remove(nodo)
             fichas_moviles = []
             for i in range(3):
                 for j in range (3):
@@ -120,12 +123,16 @@ def search_anchura(t_ini, arbol, raiz):
                     arbol.append(nodo_aux)
                 if not way:
                     break
+            if not way:
+                break
+        if not way:
+            break
 
-    for nodo in arbol:
-        if t_ini in nodo:
-            print(nodo)
-            print(len(nodo))        
-
+    
+    
+    print(arbol[-1])   
+    print(len(arbol))
+    print(len(arbol[-1]))
 
 
 
@@ -163,8 +170,11 @@ def main():
     while search_random(t_mezclado, t_vict):
         count = count + 1
     print("\nSolucion encontrada en " + str(count) + " movimientos!")
+    inicio = time.time()
     search_anchura(t_vict, arbol, raiz)
-
+    fin = time.time()
+    tiempo = fin - inicio
+    print("Tiempo para encontrar solucion por anchura: " + str(tiempo))
 
 
 if __name__ == '__main__':

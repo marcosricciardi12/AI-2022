@@ -86,7 +86,6 @@ def search_anchura(t_ini, arbol, raiz):
     while way:
         arbol_ant = copy.deepcopy(arbol)
         for nodo in arbol_ant:
-            print(nodo)
             arbol.remove(nodo)
             fichas_moviles = []
             for i in range(3):
@@ -159,9 +158,9 @@ def main():
     for line in t_init:
         print(line)
     key = ''
-    var = int(input("Ingrese la cantidad de veces a mezclar el tablero, si no ingresa nada podra mezclar manualmente: "))
-    if var is not None:
-        for i in range(var):
+    var = input("Ingrese la cantidad de veces a mezclar el tablero, si no ingresa nada podra mezclar manualmente: ")
+    if var != '':
+        for i in range(int(var)):
             t_mezclado = mezclar(t_init)
     else:
         while key != 'c':
@@ -180,9 +179,12 @@ def main():
     arbol[raiz].append(t_aux)
     for line in t_mezclado:
         print(line)
+    inicio = time.time()
     while search_random(t_mezclado, t_vict):
         count = count + 1
-    print("\nSolucion encontrada en " + str(count) + " movimientos!")
+    fin = time.time()
+    tiempo = fin - inicio
+    print("\nSolucion random encontrada en " + str(count) + " movimientos en " + str(tiempo) + " segundos")
     inicio = time.time()
     search_anchura(t_vict, arbol, raiz)
     fin = time.time()

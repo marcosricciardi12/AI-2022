@@ -1,0 +1,413 @@
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 3     6 
+ 4  5  2 
+ 7  1  8 
+
+Busqueda aleatoria: ....
+[3, 0, 6]
+[4, 5, 2]
+[7, 1, 8]
+Solucion random encontrada en 106576 movimietos!
+Tiempo empleado para encontrar la solucion random: 0.161103 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[3, 0, 6], [4, 5, 2], [7, 1, 8]]
+[[3, 5, 6], [4, 0, 2], [7, 1, 8]]
+[[3, 5, 6], [4, 1, 2], [7, 0, 8]]
+[[3, 5, 6], [4, 1, 2], [0, 7, 8]]
+[[3, 5, 6], [0, 1, 2], [4, 7, 8]]
+[[3, 5, 6], [1, 0, 2], [4, 7, 8]]
+[[3, 0, 6], [1, 5, 2], [4, 7, 8]]
+[[0, 3, 6], [1, 5, 2], [4, 7, 8]]
+[[1, 3, 6], [0, 5, 2], [4, 7, 8]]
+[[1, 3, 6], [4, 5, 2], [0, 7, 8]]
+[[1, 3, 6], [4, 5, 2], [7, 0, 8]]
+[[1, 3, 6], [4, 0, 2], [7, 5, 8]]
+[[1, 3, 6], [4, 2, 0], [7, 5, 8]]
+[[1, 3, 0], [4, 2, 6], [7, 5, 8]]
+[[1, 0, 3], [4, 2, 6], [7, 5, 8]]
+[[1, 2, 3], [4, 0, 6], [7, 5, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 0, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 17 pasos
+El nivel actual del arbol (17) tiene 4336 ramas
+Solucion en anchura encontrada en 12979 movimientos
+Tiempo para encontrar solucion por anchura: 8.421696 segundos
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 4  1  3 
+    2  5 
+ 7  8  6 
+
+Busqueda aleatoria: ....
+[4, 1, 3]
+[0, 2, 5]
+[7, 8, 6]
+Solucion random encontrada en 650928 movimietos!
+Tiempo empleado para encontrar la solucion random: 0.972645 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[4, 1, 3], [0, 2, 5], [7, 8, 6]]
+[[0, 1, 3], [4, 2, 5], [7, 8, 6]]
+[[1, 0, 3], [4, 2, 5], [7, 8, 6]]
+[[1, 2, 3], [4, 0, 5], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 0], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 5 pasos
+El nivel actual del arbol (5) tiene 17 ramas
+Solucion en anchura encontrada en 39 movimientos
+Tiempo para encontrar solucion por anchura: 0.001338 segundos
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 4  1  2 
+ 5  6    
+ 7  3  8 
+
+Busqueda aleatoria: ....
+[4, 1, 2]
+[5, 6, 0]
+[7, 3, 8]
+Solucion random encontrada en 31044 movimietos!
+Tiempo empleado para encontrar la solucion random: 0.046195 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[4, 1, 2], [5, 6, 0], [7, 3, 8]]
+[[4, 1, 2], [5, 0, 6], [7, 3, 8]]
+[[4, 1, 2], [5, 3, 6], [7, 0, 8]]
+[[4, 1, 2], [5, 3, 6], [7, 8, 0]]
+[[4, 1, 2], [5, 3, 0], [7, 8, 6]]
+[[4, 1, 2], [5, 0, 3], [7, 8, 6]]
+[[4, 1, 2], [0, 5, 3], [7, 8, 6]]
+[[0, 1, 2], [4, 5, 3], [7, 8, 6]]
+[[1, 0, 2], [4, 5, 3], [7, 8, 6]]
+[[1, 2, 0], [4, 5, 3], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 0], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 11 pasos
+El nivel actual del arbol (11) tiene 480 ramas
+Solucion en anchura encontrada en 1203 movimientos
+Tiempo para encontrar solucion por anchura: 0.111146 segundos
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 5  4  3 
+    1  6 
+ 2  7  8 
+
+Busqueda aleatoria: ....
+[5, 4, 3]
+[0, 1, 6]
+[2, 7, 8]
+Solucion random encontrada en 503138 movimietos!
+Tiempo empleado para encontrar la solucion random: 0.753992 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[5, 4, 3], [0, 1, 6], [2, 7, 8]]
+[[0, 4, 3], [5, 1, 6], [2, 7, 8]]
+[[4, 0, 3], [5, 1, 6], [2, 7, 8]]
+[[4, 1, 3], [5, 0, 6], [2, 7, 8]]
+[[4, 1, 3], [0, 5, 6], [2, 7, 8]]
+[[4, 1, 3], [2, 5, 6], [0, 7, 8]]
+[[4, 1, 3], [2, 5, 6], [7, 0, 8]]
+[[4, 1, 3], [2, 0, 6], [7, 5, 8]]
+[[4, 1, 3], [0, 2, 6], [7, 5, 8]]
+[[0, 1, 3], [4, 2, 6], [7, 5, 8]]
+[[1, 0, 3], [4, 2, 6], [7, 5, 8]]
+[[1, 2, 3], [4, 0, 6], [7, 5, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 0, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 13 pasos
+El nivel actual del arbol (13) tiene 782 ramas
+Solucion en anchura encontrada en 2139 movimientos
+Tiempo para encontrar solucion por anchura: 0.310438 segundos
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 4  1  3 
+ 7  6  2 
+ 8     5 
+
+Busqueda aleatoria: ....
+[4, 1, 3]
+[7, 6, 2]
+[8, 0, 5]
+Solucion random encontrada en 689850 movimietos!
+Tiempo empleado para encontrar la solucion random: 1.031218 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[4, 1, 3], [7, 6, 2], [8, 0, 5]]
+[[4, 1, 3], [7, 0, 2], [8, 6, 5]]
+[[4, 1, 3], [7, 2, 0], [8, 6, 5]]
+[[4, 1, 3], [7, 2, 5], [8, 6, 0]]
+[[4, 1, 3], [7, 2, 5], [8, 0, 6]]
+[[4, 1, 3], [7, 2, 5], [0, 8, 6]]
+[[4, 1, 3], [0, 2, 5], [7, 8, 6]]
+[[0, 1, 3], [4, 2, 5], [7, 8, 6]]
+[[1, 0, 3], [4, 2, 5], [7, 8, 6]]
+[[1, 2, 3], [4, 0, 5], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 0], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 11 pasos
+El nivel actual del arbol (11) tiene 400 ramas
+Solucion en anchura encontrada en 1033 movimientos
+Tiempo para encontrar solucion por anchura: 0.098031 segundos
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 1     2 
+ 8  7  3 
+ 4  6  5 
+
+Busqueda aleatoria: ....
+[1, 0, 2]
+[8, 7, 3]
+[4, 6, 5]
+Solucion random encontrada en 6168 movimietos!
+Tiempo empleado para encontrar la solucion random: 0.009286 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[1, 0, 2], [8, 7, 3], [4, 6, 5]]
+[[1, 2, 0], [8, 7, 3], [4, 6, 5]]
+[[1, 2, 3], [8, 7, 0], [4, 6, 5]]
+[[1, 2, 3], [8, 7, 5], [4, 6, 0]]
+[[1, 2, 3], [8, 7, 5], [4, 0, 6]]
+[[1, 2, 3], [8, 0, 5], [4, 7, 6]]
+[[1, 2, 3], [0, 8, 5], [4, 7, 6]]
+[[1, 2, 3], [4, 8, 5], [0, 7, 6]]
+[[1, 2, 3], [4, 8, 5], [7, 0, 6]]
+[[1, 2, 3], [4, 0, 5], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 0], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 11 pasos
+El nivel actual del arbol (11) tiene 476 ramas
+Solucion en anchura encontrada en 1196 movimientos
+Tiempo para encontrar solucion por anchura: 0.108743 segundos
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 4  1  3 
+    2  5 
+ 7  8  6 
+
+Busqueda aleatoria: ....
+[4, 1, 3]
+[0, 2, 5]
+[7, 8, 6]
+Solucion random encontrada en 400810 movimietos!
+Tiempo empleado para encontrar la solucion random: 0.602026 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[4, 1, 3], [0, 2, 5], [7, 8, 6]]
+[[0, 1, 3], [4, 2, 5], [7, 8, 6]]
+[[1, 0, 3], [4, 2, 5], [7, 8, 6]]
+[[1, 2, 3], [4, 0, 5], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 0], [7, 8, 6]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 5 pasos
+El nivel actual del arbol (5) tiene 17 ramas
+Solucion en anchura encontrada en 39 movimientos
+Tiempo para encontrar solucion por anchura: 0.001376 segundos
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 3  6  2 
+ 1  4    
+ 7  5  8 
+
+Busqueda aleatoria: ....
+[3, 6, 2]
+[1, 4, 0]
+[7, 5, 8]
+Solucion random encontrada en 388358 movimietos!
+Tiempo empleado para encontrar la solucion random: 0.595462 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[3, 6, 2], [1, 4, 0], [7, 5, 8]]
+[[3, 6, 0], [1, 4, 2], [7, 5, 8]]
+[[3, 0, 6], [1, 4, 2], [7, 5, 8]]
+[[0, 3, 6], [1, 4, 2], [7, 5, 8]]
+[[1, 3, 6], [0, 4, 2], [7, 5, 8]]
+[[1, 3, 6], [4, 0, 2], [7, 5, 8]]
+[[1, 3, 6], [4, 2, 0], [7, 5, 8]]
+[[1, 3, 0], [4, 2, 6], [7, 5, 8]]
+[[1, 0, 3], [4, 2, 6], [7, 5, 8]]
+[[1, 2, 3], [4, 0, 6], [7, 5, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 0, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 11 pasos
+El nivel actual del arbol (11) tiene 339 ramas
+Solucion en anchura encontrada en 900 movimientos
+Tiempo para encontrar solucion por anchura: 0.082921 segundos
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 2  5  3 
+ 1  7  6 
+ 4     8 
+
+Busqueda aleatoria: ....
+[2, 5, 3]
+[1, 7, 6]
+[4, 0, 8]
+Solucion random encontrada en 908060 movimietos!
+Tiempo empleado para encontrar la solucion random: 1.384921 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[2, 5, 3], [1, 7, 6], [4, 0, 8]]
+[[2, 5, 3], [1, 0, 6], [4, 7, 8]]
+[[2, 0, 3], [1, 5, 6], [4, 7, 8]]
+[[0, 2, 3], [1, 5, 6], [4, 7, 8]]
+[[1, 2, 3], [0, 5, 6], [4, 7, 8]]
+[[1, 2, 3], [4, 5, 6], [0, 7, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 0, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 7 pasos
+El nivel actual del arbol (7) tiene 43 ramas
+Solucion en anchura encontrada en 105 movimientos
+Tiempo para encontrar solucion por anchura: 0.005506 segundos
+Tablero inicial (condicion de victoria): 
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+ 1     3 
+ 4  2  6 
+ 7  5  8 
+
+Busqueda aleatoria: ....
+[1, 0, 3]
+[4, 2, 6]
+[7, 5, 8]
+Solucion random encontrada en 127716 movimietos!
+Tiempo empleado para encontrar la solucion random: 0.194413 segundos
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 0]
+
+
+Busqueda por anchura, Buscando caminos...
+
+Victoria
+
+Camino de la solucion encontrada:
+
+[[1, 0, 3], [4, 2, 6], [7, 5, 8]]
+[[1, 2, 3], [4, 0, 6], [7, 5, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 0, 8]]
+[[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+
+El camino de la solucion encontrada tiene 3 pasos
+El nivel actual del arbol (3) tiene 6 ramas
+Solucion en anchura encontrada en 11 movimientos
+Tiempo para encontrar solucion por anchura: 0.000312 segundos
+Se realiza 10 veces el siguiente proceso: desordenar el tablero inicial con 30 movimientos aleatorios y se realiza la busquedar random y luego por anchura
+Una vez encontrado los resultados se calcula el promedio de tiempo para la busqueda random y el promedio de movimientos realizados
+De igual manera se calcula el promedio de tiempo para la busqueda por anchura y el promedio de movimientos realizados
+
+Busqueda random: 381264.800000 movimientos promedio y 0.575126 tiempo promedio de busqueda.
+
+
+Busqueda por anchura: 1964.400000 movimientos promedio y 0.914151 tiempo promedio de busqueda.
+

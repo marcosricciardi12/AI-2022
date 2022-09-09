@@ -1,9 +1,7 @@
-
 import random
 import sys
 import copy
 import time
-sys.setrecursionlimit(10**6)
 
 
 

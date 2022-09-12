@@ -41,8 +41,7 @@ def main():
                 dw2 = LR * linea[1] * delta
                 w2 = w2 + dw2
                 print("w0 = %f \nw1 = %f \nw2 = %f "%(w0, w1, w2))
-        if count == 1000:
-            break
+        # 
     print("Cantidad de iteraciones: %d" %(count))
     print("w0 = %f \nw1 = %f \nw2 = %f " % (w0, w1, w2))
     

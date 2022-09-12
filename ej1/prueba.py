@@ -3,6 +3,7 @@ import random
 import sys
 import copy
 import time
+from traceback import print_tb
 sys.setrecursionlimit(10**6)
 
 
@@ -81,10 +82,13 @@ def search_random(t_mezc, t_ini):
 def search_anchura(t_ini, arbol, raiz):
     way = True
     movimientos = []
+    nivel = 0
     countrep = 0
     print("Buscando caminos...")
     while way:
         arbol_ant = copy.deepcopy(arbol)
+        nivel = nivel +1
+        print("Nivel: %d" %(nivel))
         for nodo in arbol_ant:
             arbol.remove(nodo)
             fichas_moviles = []

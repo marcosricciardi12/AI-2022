@@ -8,7 +8,7 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones):
         if fabs(error) >  0.1:
             delta = p_sal.salida*(1-p_sal.salida)*error
             for p in list_perceptrones:
-                print(pesos)
+                # print(pesos)
                 for i in range(len(p.entradas)):
                     dw = LR * p.entradas[i] * delta
                     pesos[i] = p.pesos[i] + dw
@@ -57,14 +57,14 @@ def main():
     corregir = True
     while True:
         print(pesos)
-        input()
         for linea in tabla_xor:
-            # input()
+            input()
             for p_ent in list_entrada:
                 for i in range(len(linea)-1):
                     p_ent.entradas[i] = linea[i]
                 p_ent.calc_salida()
-                # print(p_ent.salida)
+                print("\nPerceptron entrada:")
+                p_ent.mostrar_val()
 
             for p_ocu in list_oculta:
                 for i in range(len(list_entrada)+1):
@@ -73,6 +73,8 @@ def main():
                     else:
                         p_ocu.entradas[i] = float(list_entrada[i-1].salida)
                 p_ocu.calc_salida()
+                print("\nPerceptron oculto:")
+                p_ocu.mostrar_val()
 
             for p_sal in list_salida:
                 for i in range(len(list_oculta)+1):
@@ -81,8 +83,9 @@ def main():
                     else:
                         p_sal.entradas[i] = float(list_oculta[i-1].salida)
                 p_sal.calc_salida()
-            
-            # print(list_salida[0].salida)    
+                print("\nPerceptron salida:")
+                p_sal.mostrar_val()
+              
             corregir = corregir_pesos(list_salida, pesos, linea[-1], list_perceptrones)
 
             

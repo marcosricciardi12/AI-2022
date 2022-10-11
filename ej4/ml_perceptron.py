@@ -1,9 +1,27 @@
 from perceptron import Perceptron
 from math import fabs
+import matplotlib.pyplot as plt
 import copy
-def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones):
+
+def graph(lista_datos, nombre):
+    plt.figure(figsize=(10,7))
+    x = []
+    x = range(len(lista_datos))
+    for i in range(len(lista_datos[0])):
+        y = []
+        for j in range(len(lista_datos)):
+            y.append(lista_datos[j][i])
+        plt.plot(x, y, label = "W%d" %(i))
+    plt.title(nombre)
+    plt.legend()
+    plt.savefig(nombre + ".png")
+    plt.show()
+    plt.close()
+
+def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones, historico_pesos, historico_error):
     LR = 0.5
     pos_peso = 0
+    
     for p_sal in list_salida:
         print(salida_deseada, p_sal.salida)
         error = float(salida_deseada) - float(p_sal.salida)
@@ -17,36 +35,40 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones):
                 
                 p.pesos.clear()
                 for entrada in p.entradas:
-                    print(p.salida)
+                    # print(p.salida)
                     delta = p.salida*(1-p.salida)*delta_fin
-                    print("Delta: %f" % (delta))
+                    # print("Delta: %f" % (delta))
                     dw = LR * entrada * delta
-                    print("dw: %f" % (dw))
+                    # print("dw: %f" % (dw))
                     pesos[pos_peso] = pesos[pos_peso] + dw
                     p.pesos.append(pesos[pos_peso])
                     pos_peso = pos_peso + 1
-            
+
+
+            historico_pesos.append(copy.deepcopy(pesos))
+
+        
         else:
             return False
     return True
 
-def asignar_pesos(cant_entrada,list_entrada,cant_oculta,list_oculta,cant_salida,list_salida, pesos):
-    pos_peso = 0
-    for p in range(cant_entrada):
-        list_entrada[p].pesos.clear()
-        for i in range(cant_entrada + 1):
-            list_entrada[p].pesos.append(pesos[pos_peso])
-            pos_peso = pos_peso + 1
-    for p in range(cant_oculta):
-        list_oculta[p].pesos.clear()
-        for i in range(cant_entrada + 1):
-            list_oculta[p].pesos.append(pesos[pos_peso])
-            pos_peso = pos_peso + 1
-    for p in range(cant_salida):
-        list_salida[p].pesos.clear()
-        for i in range(cant_oculta + 1):
-            list_salida[p].pesos.append(pesos[pos_peso])
-            pos_peso = pos_peso + 1
+# def asignar_pesos(cant_entrada,list_entrada,cant_oculta,list_oculta,cant_salida,list_salida, pesos):
+#     pos_peso = 0
+#     for p in range(cant_entrada):
+#         list_entrada[p].pesos.clear()
+#         for i in range(cant_entrada + 1):
+#             list_entrada[p].pesos.append(pesos[pos_peso])
+#             pos_peso = pos_peso + 1
+#     for p in range(cant_oculta):
+#         list_oculta[p].pesos.clear()
+#         for i in range(cant_entrada + 1):
+#             list_oculta[p].pesos.append(pesos[pos_peso])
+#             pos_peso = pos_peso + 1
+#     for p in range(cant_salida):
+#         list_salida[p].pesos.clear()
+#         for i in range(cant_oculta + 1):
+#             list_salida[p].pesos.append(pesos[pos_peso])
+#             pos_peso = pos_peso + 1
 
 
 def main():
@@ -60,6 +82,9 @@ def main():
     list_oculta = []
     list_salida = []
     list_perceptrones = []
+    historico_pesos = []
+    historico_error = []
+    historico_pesos.append(copy.deepcopy(pesos))
 
     tabla_xor = [   [1,0,0,0],
                     [1,0,1,1],
@@ -89,14 +114,15 @@ def main():
             pos_peso = pos_peso + 1
 
     list_perceptrones = list_entrada + list_oculta + list_salida
-
+    print("\nPesos iniciales:\n ")
+    for i in range(len(pesos)):
+        print("\tw%d: %f" % (i, pesos[i]))
     corregir = True
-    while True:
-        input()
-        
+    while corregir:
+        # input("Enter para continuar...")
+        error = []
         for linea in tabla_xor:
-            print(pesos)
-            # input()
+            # input("Enter para continuar...")
             for p_ent in list_entrada:
                 for i in range(len(linea)-1):
                     p_ent.entradas[i] = linea[i]
@@ -132,9 +158,15 @@ def main():
                 print("\nPerceptron salida:")
                 print(linea)
                 p_sal.mostrar_val()
-              
-            corregir = corregir_pesos(list_salida, pesos, linea[-1], list_perceptrones)
+                error.append((linea[-1]-p_sal.salida))  
+            corregir = corregir_pesos(list_salida, pesos, linea[-1], list_perceptrones, historico_pesos, historico_error)
+            print("\nPesos corregidos: ")
+            for i in range(len(pesos)):
+                print("\tw%d: %f" % (i, pesos[i]))
+        historico_error.append(error)
 
+    graph(historico_pesos, "Pesos")
+    graph(historico_error, "Errores")
             
 
 

@@ -52,25 +52,6 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones, histor
             return False
     return True
 
-# def asignar_pesos(cant_entrada,list_entrada,cant_oculta,list_oculta,cant_salida,list_salida, pesos):
-#     pos_peso = 0
-#     for p in range(cant_entrada):
-#         list_entrada[p].pesos.clear()
-#         for i in range(cant_entrada + 1):
-#             list_entrada[p].pesos.append(pesos[pos_peso])
-#             pos_peso = pos_peso + 1
-#     for p in range(cant_oculta):
-#         list_oculta[p].pesos.clear()
-#         for i in range(cant_entrada + 1):
-#             list_oculta[p].pesos.append(pesos[pos_peso])
-#             pos_peso = pos_peso + 1
-#     for p in range(cant_salida):
-#         list_salida[p].pesos.clear()
-#         for i in range(cant_oculta + 1):
-#             list_salida[p].pesos.append(pesos[pos_peso])
-#             pos_peso = pos_peso + 1
-
-
 def main():
 
     entradas = 2
@@ -118,7 +99,9 @@ def main():
     for i in range(len(pesos)):
         print("\tw%d: %f" % (i, pesos[i]))
     corregir = True
-    while corregir:
+    count = 0
+    while count<=1500:
+        count += 1
         # input("Enter para continuar...")
         error = []
         for linea in tabla_xor:

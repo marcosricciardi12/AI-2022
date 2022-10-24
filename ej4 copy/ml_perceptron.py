@@ -3,6 +3,7 @@ from math import fabs
 import matplotlib.pyplot as plt
 import copy
 import random
+from read_images import read_images
 
 def graph(lista_datos, nombre):
     plt.figure(figsize=(10,7))
@@ -46,7 +47,7 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones, histor
                     pos_peso = pos_peso + 1
 
 
-            historico_pesos.append(copy.deepcopy(pesos))
+            # historico_pesos.append(copy.deepcopy(pesos))
 
         
         else:
@@ -55,7 +56,6 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones, histor
 
 def main():
 
-    entradas = 2
     cant_entrada = 0 #tantos perceptrones como cantidad de entradas
     cant_oculta = 10
     cant_salida = 1
@@ -63,20 +63,19 @@ def main():
     list_entrada = []
     list_oculta = []
     list_salida = []
-    cant_pesos = (cant_entrada*cant_entrada+cant_entrada) + (entradas*cant_oculta+cant_oculta) + (cant_oculta*cant_salida+cant_salida)
     list_perceptrones = []
     historico_pesos = []
     historico_error = []
-    print(cant_pesos)
-    input()
-    for i in range(cant_pesos):
-        pesos.append(random.uniform(-1,1))
+    input("Presione enter para comenzar")
     
     historico_pesos.append(copy.deepcopy(pesos))
-    tabla_xor = [   [1,0,0,0],
-                    [1,0,1,1],
-                    [1,1,0,1],
-                    [1,1,1,0]]
+    tabla_imagenes = read_images()
+    entradas = len(tabla_imagenes[0])-2
+    cant_entrada = 0
+    cant_pesos = (cant_entrada*cant_entrada+cant_entrada) + (entradas*cant_oculta+cant_oculta) + (cant_oculta*cant_salida+cant_salida)
+    
+    for i in range(cant_pesos):
+        pesos.append(random.uniform(-0.01,0.01))
     pos_peso = 0
 
     for p in range(cant_entrada):
@@ -102,15 +101,17 @@ def main():
 
     list_perceptrones = list_entrada + list_oculta + list_salida
     print("\nPesos iniciales:\n ")
-    for i in range(len(pesos)):
-        print("\tw%d: %f" % (i, pesos[i]))
+    print(cant_pesos)
+    # for i in range(len(pesos)):
+    #     print("\tw%d: %f" % (i, pesos[i]))
     corregir = True
     count = 0
     while corregir:
         count += 1
+        print("Cantidad de iteraciones: %d" % (count))
         # input("Enter para continuar...")
         error = []
-        for linea in tabla_xor:
+        for linea in tabla_imagenes:
             # input("Enter para continuar...")
             for p_ent in list_entrada:
                 for i in range(len(linea)-1):
@@ -152,11 +153,11 @@ def main():
             # print("\nPesos corregidos: ")
             # for i in range(len(pesos)):
             #     print("\tw%d: %f" % (i, pesos[i]))
-        historico_error.append(error)
+        # historico_error.append(error)
 
     print("Cantidad de iteraciones: %d" % (count))
     # graph(historico_pesos, "Pesos")
-    graph(historico_error, "Errores")
+    # graph(historico_error, "Errores")
             
 
 

@@ -2,6 +2,7 @@ from perceptron import Perceptron
 from math import fabs
 import matplotlib.pyplot as plt
 import copy
+import random
 
 def graph(lista_datos, nombre):
     plt.figure(figsize=(10,7))
@@ -23,9 +24,9 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones, histor
     pos_peso = 0
     
     for p_sal in list_salida:
-        print(salida_deseada, p_sal.salida)
+        # print(salida_deseada, p_sal.salida)
         error = float(salida_deseada) - float(p_sal.salida)
-        print("Error: %f" % error)
+        # print("Error: %f" % error)
         delta_fin = p_sal.salida*(1-p_sal.salida)*error
         
         if fabs(error) >  0.1:
@@ -56,17 +57,22 @@ def main():
 
     entradas = 2
     cant_entrada = 0 #tantos perceptrones como cantidad de entradas
-    cant_oculta = 3
+    cant_oculta = 10
     cant_salida = 1
-    pesos = [0.9, 0.7, 0.5, 0.3, -0.9, -1, 0.8, 0.35, 0.1, -0.23, -0.79, 0.56, 0.6]
+    pesos = []
     list_entrada = []
     list_oculta = []
     list_salida = []
+    cant_pesos = (cant_entrada*cant_entrada+cant_entrada) + (entradas*cant_oculta+cant_oculta) + (cant_oculta*cant_salida+cant_salida)
     list_perceptrones = []
     historico_pesos = []
     historico_error = []
+    print(cant_pesos)
+    input()
+    for i in range(cant_pesos):
+        pesos.append(random.uniform(-1,1))
+    
     historico_pesos.append(copy.deepcopy(pesos))
-
     tabla_xor = [   [1,0,0,0],
                     [1,0,1,1],
                     [1,1,0,1],
@@ -110,8 +116,8 @@ def main():
                 for i in range(len(linea)-1):
                     p_ent.entradas[i] = linea[i]
                 p_ent.calc_salida()
-                print("\nPerceptron entrada:")
-                p_ent.mostrar_val()
+                # print("\nPerceptron entrada:")
+                # p_ent.mostrar_val()
 
             if  cant_entrada == 0:
                 for p_ocu in list_oculta:
@@ -138,17 +144,18 @@ def main():
                     else:
                         p_sal.entradas[i] = float(list_oculta[i-1].salida)
                 p_sal.calc_salida()
-                print("\nPerceptron salida:")
-                print(linea)
-                p_sal.mostrar_val()
+                # print("\nPerceptron salida:")
+                # print(linea)
+                # p_sal.mostrar_val()
                 error.append((linea[-1]-p_sal.salida))  
             corregir = corregir_pesos(list_salida, pesos, linea[-1], list_perceptrones, historico_pesos, historico_error)
-            print("\nPesos corregidos: ")
-            for i in range(len(pesos)):
-                print("\tw%d: %f" % (i, pesos[i]))
+            # print("\nPesos corregidos: ")
+            # for i in range(len(pesos)):
+            #     print("\tw%d: %f" % (i, pesos[i]))
         historico_error.append(error)
 
-    graph(historico_pesos, "Pesos")
+    print("Cantidad de iteraciones: %d" % (count))
+    # graph(historico_pesos, "Pesos")
     graph(historico_error, "Errores")
             
 

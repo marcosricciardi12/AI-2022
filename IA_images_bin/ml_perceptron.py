@@ -57,7 +57,7 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones, histor
 def main():
 
     cant_entrada = 0 #tantos perceptrones como cantidad de entradas
-    cant_oculta = 100
+    cant_oculta = 10
     cant_salida = 1
     pesos = []
     list_entrada = []

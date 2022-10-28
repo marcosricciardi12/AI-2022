@@ -12,7 +12,13 @@ def read_images():
         for j in range(len(img)):
             for k in range(len(img[0])):
                 px = img[j][k][0]
-                aux.append(px/255)
+                exceso = 0
+                for l in range(8):
+                    if l < 8-len(bin(px)[2:]):
+                        aux.append(0)
+                        exceso = exceso + 1
+                    else:
+                        aux.append(int(bin(px)[2+l-exceso]))
 
         # Agrego salida esperada para persona A o B
         if persona:
@@ -23,7 +29,9 @@ def read_images():
             persona = True
             
         image_px.append(copy.deepcopy(aux))
-
+    print(len(image_px[0]))
     return image_px
+
+read_images()
 
     

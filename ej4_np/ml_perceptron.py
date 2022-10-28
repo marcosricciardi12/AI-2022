@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import copy
 import random
 from read_images import read_images
+import numpy as np
 
 def graph(lista_datos, nombre):
     plt.figure(figsize=(10,7))
@@ -35,7 +36,7 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones, histor
             for p in list_perceptrones:
                 # print(pesos)
                 
-                p.pesos.clear()
+                p.pesos = np.delete(p.pesos, slice(0, None),0)
                 for entrada in p.entradas:
                     # print(p.salida)
                     delta = p.salida*(1-p.salida)*delta_fin
@@ -43,7 +44,7 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones, histor
                     dw = LR * entrada * delta
                     # print("dw: %f" % (dw))
                     pesos[pos_peso] = pesos[pos_peso] + dw
-                    p.pesos.append(pesos[pos_peso])
+                    p.pesos = np.append(p.pesos, pesos[pos_peso])
                     pos_peso = pos_peso + 1
 
 
@@ -81,23 +82,23 @@ def main():
 
     for p in range(cant_entrada):
         list_entrada.append(Perceptron())
-        list_entrada[p].entradas = [float for x in range(cant_entrada+1)]
+        list_entrada[p].entradas = np.empty((cant_entrada+1), dtype=float)
         for i in range(cant_entrada + 1):
-            list_entrada[p].pesos.append(pesos[pos_peso])
+            list_entrada[p].pesos = np.append(list_entrada[p].pesos, pesos[pos_peso])
             pos_peso = pos_peso + 1
 
     for p in range(cant_oculta):
         list_oculta.append(Perceptron())
-        list_oculta[p].entradas = [float for x in range(entradas+1)]
+        list_oculta[p].entradas = np.empty((entradas+1), dtype=float)
         for i in range(entradas + 1):
-            list_oculta[p].pesos.append(pesos[pos_peso])
+            list_oculta[p].pesos = np.append(list_oculta[p].pesos, pesos[pos_peso])
             pos_peso = pos_peso + 1
 
     for p in range(cant_salida):
         list_salida.append(Perceptron())
-        list_salida[p].entradas = [float for x in range(cant_oculta+1)]
+        list_salida[p].entradas = np.empty((cant_oculta+1), dtype=float)
         for i in range(cant_oculta + 1):
-            list_salida[p].pesos.append(pesos[pos_peso])
+            list_salida[p].pesos = np.append(list_salida[p].pesos, pesos[pos_peso])
             pos_peso = pos_peso + 1
 
     list_perceptrones = list_entrada + list_oculta + list_salida
@@ -113,19 +114,21 @@ def main():
         # input("Enter para continuar...")
         error = []
         for linea in tabla_imagenes:
-            # input("Enter para continuar...")
+            input("Enter para continuar...")
             for p_ent in list_entrada:
-                p_ent.entradas = copy.deepcopy(linea[0:-1])
+                for i in range(len(linea)-1):
+                    p_ent.entradas[i] = linea[i]
                 p_ent.calc_salida()
-                # print("\nPerceptron entrada:")
-                # p_ent.mostrar_val()
+                print("\nPerceptron entrada:")
+                p_ent.mostrar_val()
 
             if  cant_entrada == 0:
                 for p_ocu in list_oculta:
-                    p_ocu.entradas = copy.deepcopy(linea[0:-1])
+                    for i in range(len(linea)-1):
+                        p_ocu.entradas[i] = linea[i]
                     p_ocu.calc_salida()
-                    # print("\nPerceptron Oculto:")
-                    # p_ocu.mostrar_val()
+                    print("\nPerceptron Oculto:")
+                    p_ocu.mostrar_val()
             else:
                  for p_ocu in list_oculta:
                     for i in range(len(list_entrada)+1):
@@ -134,8 +137,8 @@ def main():
                         else:
                             p_ocu.entradas[i] = float(list_entrada[i-1].salida)
                     p_ocu.calc_salida()
-                    # print("\nPerceptron oculto:")
-                    # p_ocu.mostrar_val()
+                    print("\nPerceptron oculto:")
+                    p_ocu.mostrar_val()
 
             for p_sal in list_salida:
                 for i in range(len(list_oculta)+1):
@@ -146,7 +149,7 @@ def main():
                 p_sal.calc_salida()
                 print("\n Salida Deseada: %f    Perceptron salida: %f" % (linea[-1], p_sal.salida))
                 # print(linea)
-                # p_sal.mostrar_val()
+                p_sal.mostrar_val()
                 error.append((linea[-1]-p_sal.salida))  
             corregir = corregir_pesos(list_salida, pesos, linea[-1], list_perceptrones, historico_pesos, historico_error)
             # print("\nPesos corregidos: ")

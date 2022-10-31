@@ -57,7 +57,7 @@ def corregir_pesos(list_salida, pesos, salida_deseada, list_perceptrones, histor
 def main():
 
     cant_entrada = 0 #tantos perceptrones como cantidad de entradas
-    cant_oculta = 10
+    cant_oculta = 100
     cant_salida = 1
     pesos = []
     list_entrada = []
@@ -76,7 +76,7 @@ def main():
     cant_pesos = (cant_entrada*cant_entrada+cant_entrada) + (entradas*cant_oculta+cant_oculta) + (cant_oculta*cant_salida+cant_salida)
     
     for i in range(cant_pesos):
-        pesos.append(random.uniform(-0.01,0.01))
+        pesos.append(random.uniform(-1,1))
     pos_peso = 0
 
     for p in range(cant_entrada):
@@ -107,7 +107,7 @@ def main():
     #     print("\tw%d: %f" % (i, pesos[i]))
     corregir = True
     count = 0
-    while corregir:
+    while count<100:
         count += 1
         print("Cantidad de iteraciones: %d" % (count))
         # input("Enter para continuar...")
@@ -152,11 +152,14 @@ def main():
             # print("\nPesos corregidos: ")
             # for i in range(len(pesos)):
             #     print("\tw%d: %f" % (i, pesos[i]))
-        # historico_error.append(error)
+        historico_error.append(error)
 
+    with open('pesos.txt', 'w') as f:
+        for peso in pesos:
+            f.write(str(peso) + "\n")
     print("Cantidad de iteraciones: %d" % (count))
     # graph(historico_pesos, "Pesos")
-    # graph(historico_error, "Errores")
+    graph(historico_error, "Errores")
             
 
 

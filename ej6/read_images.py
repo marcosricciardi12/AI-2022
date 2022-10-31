@@ -12,11 +12,11 @@ def read_images():
         for j in range(len(img)):
             for k in range(len(img[0])):
                 px = img[j][k][0]
-                aux.append(px/255)
+                aux.append(px)
 
         # Agrego salida esperada para persona A o B
         if persona:
-            aux.append(int(0))
+            aux.append(0)
             persona = False
         else:
             aux.append(1)
@@ -24,6 +24,10 @@ def read_images():
             
         image_px.append(copy.deepcopy(aux))
 
+    image_px = [[1,0,0,0],
+                [1,0,1,1],
+                [1,1,0,1],
+                [1,1,1,1]]
     return image_px
 
 read_images()    
